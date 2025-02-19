@@ -32,7 +32,7 @@ export default function Header({ isDarkMode, setIsDarkMode }: HeaderProps) {
           </nav>
           <div className="flex items-center gap-4">
             <motion.a
-              href="https://drive.google.com/file/d/1uVePhAKaUbl7urKA0uwHOkgmRZbRbvwG/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1Z1VROfUfHUlgImGKK0Tpev5wbOqDTFul/view?usp=sharing"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
