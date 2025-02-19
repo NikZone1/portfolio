@@ -6,19 +6,27 @@ import { ChevronDown, Github } from 'lucide-react'
 
 const projects = [
   {
-    title: 'Project One',
-    description: 'A full-stack web application built with React and Node.js',
-    details: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    github: 'https://github.com/username/project-one',
-    tech: ['React', 'Node.js', 'MongoDB']
+    title: 'CodeSense',
+    description: 'An AI-based Code Review Platform.',
+    details: 'Developed an AI-based code reviewer providing comprehensive,context aware feedback on performance, optimization, error handling security across multiple progamming languages.',
+    github: 'https://github.com/NikZone1/codesense-basic',
+    tech: ['Artificial Intelligence','React', 'Vite', 'Flask', 'Ollama Lllama 3.2', 'YML']
   },
   {
-    title: 'Project Two',
-    description: 'Mobile-first responsive website with modern animations',
-    details: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-    github: 'https://github.com/username/project-two',
-    tech: ['React', 'Tailwind CSS', 'Framer Motion']
+    title: 'House Hunt Hero',
+    description: 'ML model to predict house price.',
+    details: 'Developed a machine learning model which uses linear regression and RMSE to forecast house prices based on features like locality, number of rooms, balcony, area square ft. etc.',
+    github: '',
+    tech: ['Machine Learning','Linear Regression', 'RMSE', 'Numpy', 'Scikit-Learn']
+  },
+  {
+    title: 'Test Ease',
+    description: 'Automation Testing of Ecommerce Site',
+    details: 'Utilized Selenim WebDriver to perform automated testing for various test cases such as user authentication, adding products to cart, applying filters and checkout process on an ecommerce site.',
+    github: '',
+    tech: ['Automation Testing', 'Selenium WebDriver', 'Java']
   }
+  
 ]
 
 export default function Projects() {
