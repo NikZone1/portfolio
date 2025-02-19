@@ -15,7 +15,7 @@ export default function Hero() {
       className="min-h-screen flex flex-col justify-between relative"
     >
       <div className="flex-grow flex items-center">
-        <div className="w-full max-w-4xl mx-auto px-4">
+        <div className="w-full max-w-4xl mx-auto px-4 pb-40">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
