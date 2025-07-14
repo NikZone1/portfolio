@@ -19,6 +19,7 @@ const skills = [
   { name: 'Azure', icon: Cloud, color: 'text-blue-700' },
   { name: 'Kafka', icon: Radio, color: 'text-purple-600' },
   { name: 'REST API', icon: Network, color: 'text-pink-500' },
+  { name: 'Nginx', icon: Server, color: 'text-green-500' },
   { name: 'Linux', icon: Terminal, color: 'text-gray-700' },
   { name: 'GitHub', icon: GitBranch, color: 'text-gray-700' },
   { name: 'Git', icon: GitBranch, color: 'text-red-500' },
