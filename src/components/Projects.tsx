@@ -16,14 +16,14 @@ const projects = [
     title: 'House Hunt Hero',
     description: 'ML model to predict house price.',
     details: 'Developed a machine learning model which uses linear regression and RMSE to forecast house prices based on features like locality, number of rooms, balcony, area square ft. etc.',
-    github: '',
+    // github: '',
     tech: ['Machine Learning','Linear Regression', 'RMSE', 'Numpy', 'Scikit-Learn']
   },
   {
     title: 'Test Ease',
     description: 'Automation Testing of Ecommerce Site',
     details: 'Utilized Selenim WebDriver to perform automated testing for various test cases such as user authentication, adding products to cart, applying filters and checkout process on an ecommerce site.',
-    github: '',
+    // github: '',
     tech: ['Automation Testing', 'Selenium WebDriver', 'Java']
   }
   
