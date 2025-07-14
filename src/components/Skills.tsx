@@ -1,11 +1,12 @@
 import { motion } from 'framer-motion'
-import { Code, Database, Globe, Terminal, Server, Box, GitBranch, Trello, Cpu } from 'lucide-react'
+import { Terminal, Database, Code, Globe, Box, Server, Cpu, Trello, GitBranch, Cloud, Radio, Network } from 'lucide-react';
 
 const skills = [
   { name: 'Python', icon: Terminal, color: 'text-yellow-500' },
   { name: 'SQL', icon: Database, color: 'text-blue-500' },
   { name: 'HTML', icon: Code, color: 'text-orange-500' },
   { name: 'CSS', icon: Globe, color: 'text-blue-400' },
+  { name: 'JavaScript', icon: Code, color: 'text-yellow-400' },
   { name: 'React', icon: Code, color: 'text-blue-600' },
   { name: 'Vite', icon: Box, color: 'text-purple-500' },
   { name: 'Flask', icon: Server, color: 'text-gray-600' },
@@ -14,9 +15,15 @@ const skills = [
   { name: 'Jenkins', icon: Box, color: 'text-red-500' },
   { name: 'Jira', icon: Trello, color: 'text-blue-500' },
   { name: 'Docker', icon: Box, color: 'text-blue-400' },
+  { name: 'Kubernetes', icon: Box, color: 'text-indigo-500' },
+  { name: 'Azure', icon: Cloud, color: 'text-blue-700' },
+  { name: 'Kafka', icon: Radio, color: 'text-purple-600' },
+  { name: 'REST API', icon: Network, color: 'text-pink-500' },
+  { name: 'Linux', icon: Terminal, color: 'text-gray-700' },
   { name: 'GitHub', icon: GitBranch, color: 'text-gray-700' },
   { name: 'Git', icon: GitBranch, color: 'text-red-500' },
 ]
+
 
 export default function Skills() {
   return (
