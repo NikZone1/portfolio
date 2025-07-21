@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.react-bits-bg {
+  background-color: #f8fafc;
+  background-image: url('data:image/svg+xml;utf8,<svg width="60" height="60" viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg"><g opacity="0.08"><ellipse cx="30" cy="30" rx="28" ry="10" stroke="%2300d8ff" stroke-width="2"/><ellipse cx="30" cy="30" rx="10" ry="28" stroke="%2300d8ff" stroke-width="2"/><ellipse cx="30" cy="30" rx="28" ry="10" transform="rotate(60 30 30)" stroke="%2300d8ff" stroke-width="2"/><ellipse cx="30" cy="30" rx="10" ry="28" transform="rotate(60 30 30)" stroke="%2300d8ff" stroke-width="2"/><ellipse cx="30" cy="30" rx="28" ry="10" transform="rotate(120 30 30)" stroke="%2300d8ff" stroke-width="2"/><ellipse cx="30" cy="30" rx="10" ry="28" transform="rotate(120 30 30)" stroke="%2300d8ff" stroke-width="2"/><circle cx="30" cy="30" r="4" fill="%2300d8ff"/></g></svg>');
+  background-size: 120px 120px;
+}
+
+.skills-fade-mask {
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40%,
+    black 60%,
+    transparent 100%
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 40%,
+    black 60%,
+    transparent 100%
+  );
+}
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+.marquee {
+  animation: marquee linear infinite;
+}
+.marquee-reverse {
+  animation: marquee linear infinite;
+  /* animation-direction: reverse; will be set inline via style */
+}
+
+/* Add a class to trigger the fade-in only on initial load */
+.terminal-intro.fade-in {
+  opacity: 0;
+  animation: terminal-fade-in 1s ease forwards;
+  animation-delay: 1.5s;
+}
+.terminal-intro {
+  background: rgba(34, 34, 34, 0.6);
+  color: #f4f4f4;
+  font-family: 'Fira Mono', 'Consolas', monospace;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.5);
+  max-width: 420px;
+  margin: 2rem 2rem 2rem auto;
+  font-size: 1.1rem;
+  border: 2px solid rgba(200, 200, 200, 0.2);
+  position: relative;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  /* Remove animation and opacity here so it only applies with .fade-in */
+  opacity: 1;
+  animation: none;
+}
+@keyframes terminal-fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.terminal-bar {
+  display: flex;
+  align-items: center;
+  height: 18px;
+  margin-bottom: 1.2rem;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  padding: 0.5rem 1rem 0.5rem 0;
+  background: rgba(34, 34, 34, 0.3);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  z-index: 2;
+  justify-content: flex-end;
+}
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 6px;
+}
+.terminal-dot.red { background: #ff5f56; }
+.terminal-dot.yellow { background: #ffbd2e; }
+.terminal-dot.green { background: #27c93f; }
+.terminal-content {
+  padding-top: 2rem;
+  min-height: 60px;
+  word-break: break-word;
+  text-align: justify;
+}
+.terminal-prompt {
+  color: #39ff14;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.terminal-cursor {
+  display: inline-block;
+  width: 10px;
+  height: 1.2em;
+  background: #fff;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink-cursor 1s steps(1) infinite;
+}
+@keyframes blink-cursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
