@@ -24,7 +24,10 @@ export default function Hero() {
           transition={{ duration: 0.5 }}
           className="flex-1 text-center md:text-left pb-6 md:pb-0"
         >
-          <div style={{ fontFamily: "'Montserrat', Inter, Arial, sans-serif" }} className="pb-10">
+          <div
+            style={{ fontFamily: "'Montserrat', Inter, Arial, sans-serif" }}
+            className="pb-10"
+          >
             <SplitText
               text={'<span class="text-green-600">Hello</span>, you!'}
               className="text-4xl sm:text-5xl md:text-7xl font-bold text-white leading-[1.35] pb-8 border-b-4 border-transparent"
@@ -38,7 +41,7 @@ export default function Hero() {
               rootMargin="-100px"
               textAlign="center"
               onLetterAnimationComplete={() => {
-                console.log('All letters have animated!');
+                console.log("All letters have animated!");
               }}
             />
           </div>
@@ -55,12 +58,7 @@ export default function Hero() {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5, duration: 0.5 }}
-        onClick={() => {
-          const projectsSection = document.getElementById("projects");
-          if (projectsSection) {
-            projectsSection.scrollIntoView({ behavior: "smooth" });
-          }
-        }}
+        onClick={scrollToProjects}
       >
         <ChevronDown className="w-12 h-12 text-green-600 animate-bounce" />
       </motion.div>
