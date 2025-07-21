@@ -36,7 +36,7 @@ const SplitText = ({
   textAlign = "center",
   onLetterAnimationComplete,
 }: SplitTextProps) => {
-  const ref = useRef<HTMLElement | null>(null);
+  const ref = useRef<HTMLParagraphElement | null>(null);
   const animationCompletedRef = useRef(false);
   const scrollTriggerRef = useRef<ScrollTriggerType | null>(null);
 
@@ -154,7 +154,7 @@ const SplitText = ({
       ref={ref}
       className={`split-parent ${className}`}
       style={{
-        textAlign,
+        textAlign: textAlign as React.CSSProperties['textAlign'],
         overflow: "hidden",
         display: "inline-block",
         whiteSpace: "normal",

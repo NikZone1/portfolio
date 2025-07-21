@@ -1,9 +1,19 @@
+let terminalHasAnimated = false;
+
 import { useEffect, useState } from "react";
 
 const introText = "I'm Nikhil! A passionate developer specializing in Software & Web Development, DevOps, Cloud and Automation.<br/>Welcome to my portfolio.";
 
 export default function TerminalIntro() {
   const [visible, setVisible] = useState(true);
+  const [shouldAnimate, setShouldAnimate] = useState(false);
+
+  useEffect(() => {
+    if (!terminalHasAnimated) {
+      setShouldAnimate(true);
+      terminalHasAnimated = true;
+    }
+  }, []);
 
   // Hide when not in home section
   useEffect(() => {
@@ -18,11 +28,21 @@ export default function TerminalIntro() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  if (!visible) return null;
-
   return (
-    <div className="flex-1 flex justify-center w-full md:ml-16">
-      <TerminalIntro />
+    <div
+      className={`terminal-intro${shouldAnimate ? ' fade-in' : ''}`}
+      style={{ visibility: visible ? 'visible' : 'hidden', pointerEvents: visible ? 'auto' : 'none' }}
+    >
+      <div className="terminal-bar">
+        <span className="terminal-dot red" />
+        <span className="terminal-dot yellow" />
+        <span className="terminal-dot green" />
+      </div>
+      <div className="terminal-content">
+        <span className="terminal-prompt">$</span>{' '}
+        <span dangerouslySetInnerHTML={{ __html: introText }} />
+        <span className="terminal-cursor" />
+      </div>
     </div>
   );
 }

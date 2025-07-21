@@ -114,7 +114,9 @@ export default function Skills() {
           );
         }
       `}</style>
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 drop-shadow-lg">
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 drop-shadow-lg"
+         style={{ fontFamily: "'Montserrat', Inter, Arial, sans-serif" }}
+      >
         Skills
       </h2>
       <div className="relative w-full">

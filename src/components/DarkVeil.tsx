@@ -74,6 +74,16 @@ void main(){
 }
 `;
 
+interface DarkVeilProps {
+  hueShift?: number;
+  noiseIntensity?: number;
+  scanlineIntensity?: number;
+  speed?: number;
+  scanlineFrequency?: number;
+  warpAmount?: number;
+  resolutionScale?: number;
+}
+
 export default function DarkVeil({
   hueShift = 0,
   noiseIntensity = 0,
@@ -82,10 +92,11 @@ export default function DarkVeil({
   scanlineFrequency = 0,
   warpAmount = 0,
   resolutionScale = 1,
-}) {
-  const ref = useRef(null);
+}: DarkVeilProps) {
+  const ref = useRef<HTMLCanvasElement | null>(null);
   useEffect(() => {
     const canvas = ref.current;
+    if (!canvas) return;
     const parent = canvas.parentElement;
 
     const renderer = new Renderer({
@@ -113,6 +124,7 @@ export default function DarkVeil({
     const mesh = new Mesh(gl, { geometry, program });
 
     const resize = () => {
+      if (!parent) return;
       const w = parent.clientWidth,
         h = parent.clientHeight;
       renderer.setSize(w * resolutionScale, h * resolutionScale);
