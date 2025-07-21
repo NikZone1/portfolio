@@ -1,7 +1,12 @@
-import { motion } from 'framer-motion'
 import { Terminal, Database, Code, Globe, Box, Server, Cpu, Trello, GitBranch, Cloud, Radio, Network } from 'lucide-react';
 
-const skills = [
+interface Skill {
+  name: string;
+  icon: React.ElementType;
+  color: string;
+}
+
+const skills: Skill[] = [
   { name: 'Python', icon: Terminal, color: 'text-yellow-500' },
   { name: 'SQL', icon: Database, color: 'text-blue-500' },
   { name: 'HTML', icon: Code, color: 'text-orange-500' },
@@ -23,44 +28,105 @@ const skills = [
   { name: 'Linux', icon: Terminal, color: 'text-gray-700' },
   { name: 'GitHub', icon: GitBranch, color: 'text-gray-700' },
   { name: 'Git', icon: GitBranch, color: 'text-red-500' },
-]
+];
 
+function splitSkills(skills: Skill[]): [Skill[], Skill[], Skill[]] {
+  const rows: [Skill[], Skill[], Skill[]] = [[], [], []];
+  skills.forEach((skill: Skill, i: number) => {
+    rows[i % 3].push(skill);
+  });
+  return rows;
+}
+
+const [row1, row2, row3] = splitSkills(skills);
+
+interface MarqueeRowProps {
+  skills: Skill[];
+  reverse?: boolean;
+  duration?: number;
+}
+
+function MarqueeRow({ skills, reverse = false, duration = 20 }: MarqueeRowProps) {
+  const repeatedSkills = [...skills, ...skills, ...skills];
+  return (
+    <div className="overflow-hidden w-full py-2">
+      <div
+        className={`flex gap-6 min-w-max marquee-row ${reverse ? 'marquee-reverse' : 'marquee'}`}
+        style={{
+          animationDuration: `${duration}s`,
+          animationDirection: reverse ? 'reverse' : 'normal',
+        }}
+      >
+        {repeatedSkills.map((skill, idx) => (
+          <div
+            key={skill.name + idx}
+            className="flex flex-col items-center gap-2 p-4 rounded-xl  backdrop-blur-md shadow-xl border border-white/10 min-w-[140px]"
+          >
+            <div className={`p-3 rounded-full ${skill.color} bg-white/10 icon-float`}>
+              <skill.icon className={`w-8 h-8 ${skill.color}`} />
+            </div>
+            <span className="text-sm font-semibold text-white drop-shadow">
+              {skill.name}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function Skills() {
   return (
-    <section id="skills" className="py-8">
-      <div className="max-w-6xl mx-auto px-4">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
-        >
-          Skills
-        </motion.h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 justify-items-center">
-          {skills.map((skill, index) => (
-            <motion.div
-              key={skill.name}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.05 }}
-              className="group"
-            >
-              <div className="flex flex-col items-center gap-2 p-3 rounded-lg bg-white dark:bg-gray-800 shadow-md hover:shadow-lg transition-shadow">
-                <div className={`p-2 rounded-full ${skill.color} bg-opacity-20 dark:bg-opacity-30 group-hover:bg-opacity-30 dark:group-hover:bg-opacity-40 transition-colors`}>
-                  <skill.icon className={`w-5 h-5 ${skill.color}`} />
-                </div>
-                <span className="text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
-                  {skill.name}
-                </span>
-              </div>
-            </motion.div>
-          ))}
+    <section id="skills" className="py-8 relative overflow-hidden bg-transparent">
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-33.333%); }
+        }
+        .marquee {
+          animation: marquee linear infinite;
+        }
+        .marquee-reverse {
+          animation: marquee linear infinite;
+          animation-direction: reverse;
+        }
+        .icon-float {
+          animation: float 2.5s ease-in-out infinite;
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        .skills-fade-mask {
+          mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 25%,
+            black 75%,
+            transparent 100%
+          );
+          -webkit-mask-image: linear-gradient(
+            to right,
+            transparent 0%,
+            black 25%,
+            black 75%,
+            transparent 100%
+          );
+        }
+      `}</style>
+      <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12 drop-shadow-lg">
+        Skills
+      </h2>
+      <div className="relative w-full">
+        <div className="skills-fade-mask">
+          <div className="space-y-6">
+            <MarqueeRow skills={row1} reverse={false} duration={22} />
+            <MarqueeRow skills={row2} reverse={true} duration={18} />
+            <MarqueeRow skills={row3} reverse={false} duration={20} />
+          </div>
         </div>
       </div>
     </section>
-  )
+  );
 }
 

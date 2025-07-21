@@ -15,7 +15,7 @@ export default function Contact() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
+        className="text-3xl md:text-4xl font-bold text-center text-white mb-12"
       >
         Let's Connect
       </motion.h2>
@@ -31,13 +31,14 @@ export default function Contact() {
             viewport={{ once: true }}
             transition={{ delay: index * 0.1 }}
             whileHover={{ scale: 1.1 }}
-            className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-green-100 dark:hover:bg-green-900/20 transition-colors"
+            className="p-3 rounded-full bg-gray-100 dark:bg-gray-800 hover:bg-black hover:text-white transition-colors"
           >
-            <social.icon className="w-6 h-6 text-gray-600 dark:text-gray-300" />
+            <social.icon className="w-6 h-6" />
             <span className="sr-only">{social.label}</span>
           </motion.a>
         ))}
       </div>
+     
     </section>
   )
 }

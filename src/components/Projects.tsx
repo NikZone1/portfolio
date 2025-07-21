@@ -38,7 +38,7 @@ export default function Projects() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        className="text-3xl md:text-4xl font-bold text-center text-gray-900 dark:text-white mb-12"
+        className="text-3xl md:text-4xl font-bold text-center text-white mb-12"
       >
         My Projects
       </motion.h2>
@@ -46,18 +46,18 @@ export default function Projects() {
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: index * 0.2 }}
-            className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
+            initial={{ opacity: 0, x: -40 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: index * 0.2 }}
+            viewport={{ once: true, amount: 0.2 }}
+            className="bg-white/5 dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden"
           >
             <div
               onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
               className="p-6 cursor-pointer"
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white">
+                <h3 className="text-xl font-semibold text-white dark:text-white">
                   {project.title}
                 </h3>
                 <ChevronDown
@@ -66,7 +66,7 @@ export default function Projects() {
                   }`}
                 />
               </div>
-              <p className="mt-2 text-gray-600 dark:text-gray-300">{project.description}</p>
+              <p className="mt-2 text-green-600">{project.description}</p>
               <AnimatePresence>
                 {expandedIndex === index && (
                   <motion.div
@@ -76,12 +76,12 @@ export default function Projects() {
                     transition={{ duration: 0.3 }}
                     className="mt-4"
                   >
-                    <p className="text-gray-600 dark:text-gray-300">{project.details}</p>
+                    <p className="text-white">{project.details}</p>
                     <div className="mt-4 flex flex-wrap gap-2">
                       {project.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-gray-600 dark:text-gray-300"
+                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm text-black"
                         >
                           {tech}
                         </span>
