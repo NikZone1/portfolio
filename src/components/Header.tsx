@@ -44,7 +44,7 @@ export default function Header() {
           {/* Right: Resume button */}
           <div className="w-full md:w-1/3 flex justify-center md:justify-end items-center">
             <motion.a
-              href="https://drive.google.com/file/d/1YYt_kK7O6iFIwvfu5PEhs5VcxgIyVC6k/view?usp=sharing"
+              href="https://drive.google.com/file/d/15qyxWFkgildeNiFO3vvmPwy2SglhRqvw/view?usp=sharing"
               download
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
